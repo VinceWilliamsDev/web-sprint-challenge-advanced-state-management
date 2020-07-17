@@ -11,17 +11,19 @@ const SmurfForm = () => {
     const {postSmurf} = useContext(SmurfsContext)
     const [formValues, setFormValues] = useState(initialValues)
 
-    const addSmurf = event => {
-        event.preventDefault()
-        postSmurf(formValues)
-    }
-
     const handleChanges = event => {
         setFormValues({
             ...formValues,
             [event.target.name]: event.target.value
         })
     }
+
+    const addSmurf = event => {
+        event.preventDefault()
+        postSmurf(formValues)
+        setFormValues(initialValues)
+    }
+
     return(
         <form onSubmit={addSmurf}>
             <label>Smurf Name:
@@ -31,7 +33,7 @@ const SmurfForm = () => {
                     type='text'
                     onChange={handleChanges}
                 />
-            </label>
+            </label>&nbsp;
             <label>Age:
                 <input
                     value={formValues.age}
@@ -39,7 +41,7 @@ const SmurfForm = () => {
                     type='text'
                     onChange={handleChanges}
                 />
-            </label>
+            </label>&nbsp;
             <label>Height:
                 <input
                     value={formValues.height}
@@ -47,7 +49,7 @@ const SmurfForm = () => {
                     type='text'
                     onChange={handleChanges}
                 />
-            </label>
+            </label>&nbsp;
             <button>Submit</button>
         </form>
     )

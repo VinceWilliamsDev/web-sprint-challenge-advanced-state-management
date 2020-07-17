@@ -14,12 +14,12 @@ const [smurfs, setSmurfs ] = useState([])
 
 useEffect(() => {
     axios
-        .get('http://localhost:3333/smurfs')
-        .then(res => {
-            console.log(res.data.age)
-            setSmurfs(res.data)
-        })
-        .catch(err => console.log(err))
+      .get('http://localhost:3333/smurfs')
+      .then(res => {
+          console.log(res.data.age)
+          setSmurfs(res.data)
+      })
+      .catch(err => console.log(err))
 }, [])
 
 
@@ -29,7 +29,8 @@ const postSmurf = smurfData => {
   axios
     .post('http://localhost:3333/smurfs', smurfData)
     .then(res => {
-      console.log(res)
+      // console.log(res)
+      setSmurfs(res.data)
     })
     .catch(err => console.log(err))
 

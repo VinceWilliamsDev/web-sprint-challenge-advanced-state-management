@@ -7,11 +7,12 @@ const SmurfsList = () => {
     const {smurfs} = useContext(SmurfsContext)
     console.log(smurfs)
     return(
-        <div>
+        <>
+            <h2>The Smurf Village Directory!</h2>
             {smurfs.map(smurf => (
                 <SmurfTile key={smurf.id} smurf={smurf} />
             ))}
-        </div>
+        </>
     )
 }
 
