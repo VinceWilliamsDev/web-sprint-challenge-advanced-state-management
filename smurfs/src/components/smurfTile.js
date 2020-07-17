@@ -1,11 +1,12 @@
 import React from 'react'
 
 const SmurfTile = props => {
+    console.log(props)
     return(
         <div className='smurf' >
-            <h4>Name: {props.id}</h4>
-            <p>Age: {props.age}</p>
-            <p>Height: {props.height}</p>
+            <h4>Name: {props.smurf.name}</h4>
+            <p>Age: {props.smurf.age}</p>
+            <p>Height: {props.smurf.height}</p>
         </div>
     )
 }

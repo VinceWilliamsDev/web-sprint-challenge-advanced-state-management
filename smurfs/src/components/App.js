@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import { SmurfsContext } from '../contexts/smurfsContext'
 import SmurfsList from './smurfsList'
+import SmurfForm from './smurfForm'
 import "./App.css";
 
 
@@ -23,11 +24,10 @@ useEffect(() => {
 
 
 
-const addSmurf = e => {
-  e.preventDefault()
-
+const postSmurf = smurfData => {
+  console.log(smurfData)
   axios
-    .post('http://localhost:3333/smurfs', e)
+    .post('http://localhost:3333/smurfs', smurfData)
     .then(res => {
       console.log(res)
     })
@@ -38,10 +38,10 @@ const addSmurf = e => {
 
 
     return (
-      <SmurfsContext.Provider value={{smurfs, addSmurf}}>
+      <SmurfsContext.Provider value={{smurfs, postSmurf}}>
         <div className="App">
-          <h1>SMURFS! 2.0 W/ Redux</h1>
-          {/* <SmurfForm /> */}
+          <h1>SMURFS! 2.0 W/ Context API</h1>
+          <SmurfForm />
           <SmurfsList />
         </div>
       </SmurfsContext.Provider>
